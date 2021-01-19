@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import { signUp } from '../../utilities/users-service';
 
 export default class SignUpForm extends Component {
     state = {
@@ -18,20 +19,18 @@ handleChange = (evt) => {
 };
 
 handleSubmit = async (evt) => {
+  // Prevent form from being submitted to the server
   evt.preventDefault();
   try {
-    // We don't want to send the 'error' or 'confirm' property,
-    //  so let's make a copy of the state object, then delete them
     const formData = {...this.state};
     delete formData.error;
     delete formData.confirm;
     const user = await signUp(formData);
-
-    }catch {
-    //An err occurred
-    this.setState({error: 'Sign Up Failed - Try Again'});
+  } catch {
+    // An error occurred 
+    this.setState({ error: 'Sign Up Failed - Try Again' });
   }
-}
+};
 
 render() {
   const disable = this.state.password !== this.state.confirm;
@@ -53,5 +52,4 @@ render() {
       <p className="error-message">&nbsp;{this.state.error}</p>
     </div>
   );
-}
 }
