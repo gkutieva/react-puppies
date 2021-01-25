@@ -26,6 +26,7 @@ handleSubmit = async (evt) => {
     delete formData.error;
     delete formData.confirm;
     const user = await signUp(formData);
+    this.props.setUser(user);
   } catch {
     // An error occurred 
     this.setState({ error: 'Sign Up Failed - Try Again' });
