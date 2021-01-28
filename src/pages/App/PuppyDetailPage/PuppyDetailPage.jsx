@@ -1,5 +1,5 @@
 import React from "react";
-import PuppyCard from "../../components/PuppyCard/PuppyCard";
+import PuppyCard from "../../../components/PuppyCard/PuppyCard";
 import { useLocation } from "react-router-dom";
 
 export default function PuppyDetailPage(props) {

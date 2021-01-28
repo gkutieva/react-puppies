@@ -1,6 +1,6 @@
 import React from "react";
 import "./PuppyListPage.css";
-import PuppyListItem from "../../components/PuppyListItem/PuppyListItem";
+import PuppyListItem from "../../../components/PuppyListItem/PuppyListItem";
 
 export default function PuppyListPage(props) {
   return (

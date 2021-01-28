@@ -1,30 +1,29 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, {useState, useRef, useEffect } from 'react';
 
-export default function AddPuppyPage(props) {
-  const [invalidForm, setValidForm] = useState(true);
+export default function AddPuppyPage(props){
+  const [invalidForm, setInvalidForm] = useState(true);
   const [formData, setFormData] = useState({
-    name: "",
-    breed: "Mixed",
-    age: "0",
-  });
+    name: '',
+    breed: 'Mixed',
+    age: '0'
+  })
 
   const formRef = useRef();
 
   useEffect(() => {
-    formRef.current.checkValidity() ? setValidForm(false) : setValidForm(true);
+    formRef.current.checkValidity() ? setInvalidForm(false) : setInvalidForm(true);
   }, [formData]);
 
   const handleSubmit = (e) => {
-    e.preventDefault();
     props.handleAddPuppy(formData);
-  };
+  }
 
   const handleChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
+      [e.target.name]: e.target.value
+    })
+  }
 
   return (
     <>
@@ -45,7 +44,7 @@ export default function AddPuppyPage(props) {
           <input
             className="form-control"
             name="breed"
-            value={formData.breed}
+            value={ formData.breed}
             onChange={handleChange}
             required
           />
@@ -55,14 +54,19 @@ export default function AddPuppyPage(props) {
           <input
             className="form-control"
             name="age"
-            value={formData.age}
+            value={ formData.age}
             onChange={handleChange}
           />
         </div>
-        <button type="submit" className="btn" disabled={invalidForm}>
+        <button
+          type="submit"
+          className="btn"
+          disabled={invalidForm}
+        >
           ADD PUPPY
         </button>
       </form>
     </>
   );
+  
 }

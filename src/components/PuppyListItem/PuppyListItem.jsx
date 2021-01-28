@@ -12,7 +12,7 @@ export default function PuppyListItem({ puppy, handleDeletePuppy }) {
         <Link
           className="btn btn-xs btn-info"
           to={{
-            pathname: "/details",
+            pathname: "/puppies/details",
             state: { puppy },
           }}
         >
@@ -21,7 +21,7 @@ export default function PuppyListItem({ puppy, handleDeletePuppy }) {
         <Link
           className="btn btn-xs btn-warning"
           to={{
-            pathname: "/edit",
+            pathname: "/puppies/edit",
             state: { puppy },
           }}
         >
